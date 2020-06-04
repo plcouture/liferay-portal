@@ -67,8 +67,9 @@ public class ShardPersistenceAdvice implements MethodInterceptor {
 			target instanceof ShardPersistence ||
 			target instanceof VirtualHostPersistence) {
 
-			String currentShardName = ShardUtil.setTargetSource(
-				PropsValues.SHARD_DEFAULT_NAME);
+			//String currentShardName = ShardUtil.setTargetSource(PropsValues.SHARD_DEFAULT_NAME);
+			String currentShardName = ShardUtil.getCurrentShardName(); 
+			ShardUtil.setTargetSource(PropsValues.SHARD_DEFAULT_NAME);
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
