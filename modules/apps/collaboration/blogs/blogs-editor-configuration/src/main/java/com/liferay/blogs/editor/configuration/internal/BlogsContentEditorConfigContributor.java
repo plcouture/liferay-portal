@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -69,11 +69,11 @@ public class BlogsContentEditorConfigContributor
 
 		sb.append("a[*](*); ");
 		sb.append(getAllowedContentText());
-		sb.append(" div(*); img[*] {height, width}; ");
+		sb.append(" div[*](*); iframe[*](*); img[*](*){*}; ");
 		sb.append(getAllowedContentLists());
 		sb.append(" p {text-align}; ");
 		sb.append(getAllowedContentTable());
-
+		sb.append(" video[*](*);");
 		jsonObject.put("allowedContent", sb.toString());
 
 		String namespace = GetterUtil.getString(
