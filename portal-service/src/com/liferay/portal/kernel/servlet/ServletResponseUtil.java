@@ -113,7 +113,9 @@ public class ServletResponseUtil {
 
 			if (start > end) {
 				throw new IOException(
-					"Range start " + start + " is greater than end " + end);
+					"Range start " + start + " is greater than end " + end +
+					"\nindex is " + index + "\nrangeField is " + rangeField +
+					"\nrangeString is " + rangeString);
 			}
 
 			Range range = new Range(start, end, length);
