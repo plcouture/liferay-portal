@@ -762,18 +762,18 @@ public class BaseTextExportImportContentProcessor
 
 				urlSB.append(StringPool.AT);
 
-				if (urlGroup.isStaged()) {
-					Group liveGroup = urlGroup.getLiveGroup();
-
-					urlSB.append(liveGroup.getUuid());
-				}
-				else if (urlGroup.isStagedRemotely()) {
+				if (urlGroup.isStagedRemotely()) {
 					String remoteGroupUuid = urlGroup.getTypeSettingsProperty(
 						"remoteGroupUUID");
 
 					if (Validator.isNotNull(remoteGroupUuid)) {
 						urlSB.append(remoteGroupUuid);
 					}
+				}
+				else if (urlGroup.isStaged()) {
+					Group liveGroup = urlGroup.getLiveGroup();
+
+					urlSB.append(liveGroup.getUuid());
 				}
 				else if (!urlGroup.isControlPanel()) {
 					urlSB.append(urlGroup.getFriendlyURL());
